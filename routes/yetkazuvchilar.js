@@ -2,21 +2,21 @@ const express = require("express");
 
 const router = express.Router();
 
-const mijozlarController = require("../controllers/yetkazuvchilar");
+const yetkazuvchilarController = require("../controllers/yetkazuvchilar");
 
 //create
-router.post("/", mijozlarController.createYetkazuvchi);
+router.post("/", yetkazuvchilarController.createYetkazuvchi);
 
 // //get
-// router.get("/", mijozlarController.getMijozlar);
+router.get("/", yetkazuvchilarController.getYetkazuvchilar);
 
 // //getOne
-// router.get("/:id", mijozlarController.getMijoz);
+router.get("/:id", yetkazuvchilarController.getYetkazuvchi);
 
 // // update
-// router.put("/:id", mijozlarController.updateMijoz);
+router.put("/:id", yetkazuvchilarController.updateYetkazuvchi);
 
 // //delete
-// router.delete("/:id", mijozlarController.deleteMijoz);
+router.delete("/:id", yetkazuvchilarController.deleteYetkazuvchi);
 
 module.exports = router;

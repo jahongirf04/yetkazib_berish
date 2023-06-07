@@ -20,7 +20,7 @@ exports.createYetkazuvchi = (req, res) => {
 };
 
 exports.getYetkazuvchilar = (req, res) => {
-  db.query(`select * from mijozlar`, (error, result) => {
+  db.query(`select * from yetkazuvchilar`, (error, result) => {
     if (error) {
       console.log(error);
       return res.status(500).json({ error: "Error" });
@@ -31,20 +31,24 @@ exports.getYetkazuvchilar = (req, res) => {
 
 exports.getYetkazuvchi = (req, res) => {
   const myId = req.params.id;
-  db.query(`select * from mijozlar where id = ?`, myId, (error, result) => {
-    if (error) {
-      console.log(error);
-      return res.status(500).json({ error: "Error" });
+  db.query(
+    `select * from yetkazuvchilar where id = ?`,
+    myId,
+    (error, result) => {
+      if (error) {
+        console.log(error);
+        return res.status(500).json({ error: "Error" });
+      }
+      res.json(result);
     }
-    res.json(result);
-  });
+  );
 };
 
 exports.updateYetkazuvchi = (req, res) => {
   const myId = req.params.id;
   const { name } = req.body;
   db.query(
-    `update mijozlar set name = ? where id = ?`,
+    `update yetkazuvchilar set name = ? where id = ?`,
     [name, myId],
     (error, result) => {
       if (error) {
@@ -61,7 +65,7 @@ exports.updateYetkazuvchi = (req, res) => {
 
 exports.deleteYetkazuvchi = (req, res) => {
   const myId = req.params.id;
-  db.query(`delete from mijozlar where id = ?`, myId, (error, result) => {
+  db.query(`delete from yetkazuvchilar where id = ?`, myId, (error, result) => {
     if (error) {
       console.log(error);
       return res.status(500).json({ error: "Error" });
