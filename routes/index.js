@@ -7,6 +7,7 @@ const ovqatlarRoutes = require("./ovqatlar");
 const restoranlarRoutes = require("./restoranlar");
 const restoranOvqatlarRoutes = require("./restoran_ovqatlar");
 const buyurtmalarRoutes = require("./buyurtmalar");
+const searchRoutes = require("./search");
 
 router.use("/mijozlar", mijozlarRoutes);
 
@@ -19,5 +20,7 @@ router.use("/restoranlar", restoranlarRoutes);
 router.use("/restoran_ovqatlar", restoranOvqatlarRoutes);
 
 router.use("/buyurtmalar", buyurtmalarRoutes);
+
+router.use("/search", searchRoutes);
 
 module.exports = router;

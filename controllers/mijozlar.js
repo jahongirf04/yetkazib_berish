@@ -47,9 +47,9 @@ exports.updateMijoz = (req, res) => {
     `update mijozlar set name = ? where id = ?`,
     [name, myId],
     (error, result) => {
-      if (error) {
+      if (error || myId > 10) {
         console.log(error);
-        return res.status(500).json({ error: "Error" });
+        return res.status(500).json({ error: "Id not found" });
       }
       res.json({
         message: "Successful",
@@ -62,9 +62,9 @@ exports.updateMijoz = (req, res) => {
 exports.deleteMijoz = (req, res) => {
   const myId = req.params.id;
   db.query(`delete from mijozlar where id = ?`, myId, (error, result) => {
-    if (error) {
+    if (error || myId > 10) {
       console.log(error);
-      return res.status(500).json({ error: "Error" });
+      return res.status(500).json({ error: "Error id not found" });
     }
     res.json({
       message: "successful",

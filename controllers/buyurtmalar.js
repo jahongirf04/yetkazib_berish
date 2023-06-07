@@ -74,13 +74,3 @@ exports.deleteBuyurtma = (req, res) => {
     });
   });
 };
-
-exports.searchBuyurtma = (req, res) => {
-  db.query(`select * from buyurtmalar`, (error, result) => {
-    if (error) {
-      console.log(error);
-      return res.status(500).json({ error: "Error" });
-    }
-    res.json(result);
-  });
-};

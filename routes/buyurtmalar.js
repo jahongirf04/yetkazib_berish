@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 const buyurmalarController = require("../controllers/buyurtmalar");
+const { searchBuyurtma } = require("../controllers/search");
 //create
 router.post("/", buyurmalarController.createBuyurtma);
 
@@ -17,8 +18,5 @@ router.put("/:id", buyurmalarController.updateBuyurtma);
 
 //delete
 router.delete("/:id", buyurmalarController.deleteBuyurtma);
-
-// Search
-router.get("/search", buyurmalarController.searchBuyurtma);
 
 module.exports = router;
